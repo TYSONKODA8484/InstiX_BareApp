@@ -8,7 +8,7 @@ const App = ({navigation}) => {
       <Button 
         title="Get Started"
         onPress={() => 
-          navigation.navigate('Welcome', {name: 'Jane'})
+          navigation.replace('Welcome', {name: 'Jane'})
         }/>
     </View>
     

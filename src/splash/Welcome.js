@@ -1,6 +1,6 @@
 // src/splash/Welcome.js
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions, Button } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions, Button,Image,TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Welcome = ({ navigation }) => {
@@ -25,22 +25,31 @@ const Welcome = ({ navigation }) => {
         <View style={styles.page}>
           <Text style={styles.welcome}>Welcome</Text>
           <Text style={styles.textType}>We're glad that you are here</Text>
+          <Image source={require('../../assets/welcome.png')} style={styles.image} />
         </View>
         <View style={styles.page}>
+          <Image source={require('../../assets/create.png')} style={styles.image} />
           <Text style={styles.heading}>Discover Instizens in a whole new way</Text>
-          <Text style={styles.subHead}>Connect & Navigate</Text>
+          <Text style={styles.subHead}>Join A Community</Text>
         </View>
         <View style={styles.page}>
-          <Text style={styles.heading}>Connect With Other Buzzers</Text>
-          <Text style={styles.subHead}>Join A Community</Text>
-          <Button 
-            title="Create Account"
-            onPress={() => navigation.navigate('CreateAccount ')}
-          />
-          <Button 
-            title="Already have an account"
-            onPress={() => navigation.navigate('Signup')}
-          />
+        <Image source={require('../../assets/B1.png')} style={styles.image} />
+          <Text style={styles.heading}>Discover Instizians in a whole new way</Text>
+          <Text style={styles.subHead}>Connect and Navigate</Text>
+          <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Signup')}
+        >
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('CreateAccount')}
+        >
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+      </View>
         </View>
       </ScrollView>
       <View style={styles.paginationContainer}>
@@ -73,7 +82,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     fontWeight: '600',
     textAlign: 'center',
-    marginBottom: 20,
   },
   textType: {
     color: '#757575',
@@ -108,7 +116,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     flexWrap: 'wrap',
-    marginBottom: 20,
+    width: 324,
+    height:102
   },
   subHead: {
     color: '#757575',
@@ -117,6 +126,29 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     textAlign: 'center',
     flexWrap: 'wrap',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
+    gap: 30
+  },
+  button: {
+    width: 160,
+    height: 60,
+    backgroundColor: '#007BFF',
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: '#FFF', // Default white text color
+    textAlign: 'center',
+    fontFamily: 'Poppins',
+    fontSize: 20,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    lineHeight: 24,
   },
 });
 
